@@ -1,8 +1,6 @@
 ## Image Gallery 
 
-## Installation and Setup Instructions
-
-#### Example:  
+## Installation and Setup Instructions 
 
 Clone down this repository. You will need `npm` installed globally on your machine.  
 

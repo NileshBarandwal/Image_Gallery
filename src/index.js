@@ -10,12 +10,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const imageData = [];
 
-const numItemsToGenerate = 30; //how many gallery items you want on the screen
+const numberOfItemsToGenerate = 30; //how many gallery items you want on the screen
 const fillType = 10; //how many total images are in the collection you are pulling from
 const imagesize = 100; //your desired image width in pixels
 const seedId = 500; //the collection ID from the original url
 
-for (let i = 0; i < numItemsToGenerate; i++) {
+for (let i = 0; i < numberOfItemsToGenerate; i++) {
   let randomfillType = Math.floor(Math.random() * fillType);
   let randomseedId = Math.floor(Math.random() * seedId);
   if (i % 2 === 0) {
@@ -45,7 +45,11 @@ const download = e => {
   // console.log(e.target.href);
   // fetch(e.target.href, {
   //   method: "GET",
-  //   headers: {},
+  //   headers:  headers: {
+    //   'Content-Type': 'application/json',
+    //   'Access-Control-Allow-Origin' : '*',
+    // 'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS'
+    // },
   //   responseType:'blob',
   //   mode:'no-cors'
   // })
@@ -77,12 +81,12 @@ const download = e => {
     redirect: 'follow', // manual, *follow, error
     responseType:'blob',
 }).then((response) => {
-    var fileURl = window.URL.createObjectURL(new Blob([response.data]))
-    var fileLink = document.createElement('a');
-    fileLink.href = fileURl;
-    fileLink.setAttribute('download','image.png');
-    document.body.appendChild(fileLink);
-    fileLink.click();
+    var url = window.URL.createObjectURL(new Blob([response.data]))
+    var link = document.createElement('a');
+    link.src = url;
+    link.setAttribute('download','image.png');
+    document.body.appendChild(link);
+    link.click();
 })
 
 //##############################
