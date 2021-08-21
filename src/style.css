@@ -1,0 +1,33 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+.img-fluid {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 20px 20px 20px 20px;
+}
+
+.img-fluid:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+body {
+  background-color: #fee2f8;
+background-image: linear-gradient(315deg, #fee2f8 0%, #dcf8ef 74%);
+
+}
+
+.title{
+  text-align: center;
+}
+
+.loading {
+  background-color: none;
+}
