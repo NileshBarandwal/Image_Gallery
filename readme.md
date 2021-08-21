@@ -22,4 +22,4 @@ To Visit App:
 
 Working Demo :
 
-`https://nileshbarandwal.github.io/Image_Gallery/`
+https://nileshbarandwal.github.io/Image_Gallery/
