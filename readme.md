@@ -27,6 +27,7 @@ https://nileshbarandwal.github.io/Image_Gallery/
 ### Note
 
 Above solution solve all the requirements specified in Problem Statement but temporarily as am using middleware(CORS anywhere - NodeJS proxy which adds CORS headers to the proxied request) to resolve Cors error.
+But we cannot rely on third party as it's unsafe and cannot be trusted fully.
 
 To Solve this problem I had written following code which doesn't require any middleware and solves the problem. But it only works on console of pixelencounter website only, and when tired to run on console of other website or locally it gives cors error.
 
