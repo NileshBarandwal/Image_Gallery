@@ -18,7 +18,7 @@ const collectionID = 500; //the collection ID from the original url
 for (let i = 0; i < numItemsToGenerate; i++) {
   let randomImageIndex = Math.floor(Math.random() * numImagesAvailable);
   let randomCollectID = Math.floor(Math.random() * collectionID);
-  if (i % 4 === 0) {
+  if (i % 2 === 0) {
     //push fake
     imageData.push({
       src: `https://localhost:80/breakimg.jpg`
