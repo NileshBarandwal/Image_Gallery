@@ -64,7 +64,7 @@ const download = e => {
 
   //#######################
   axios({
-    url:e.target.src,
+    url:'https://cors-anywhere.herokuapp.com/'+e.target.src,
     method:'GET',
     mode: 'cors', // no-cors, *cors, same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
