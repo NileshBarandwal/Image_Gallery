@@ -11,13 +11,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const imageData = [];
 
 const numItemsToGenerate = 30; //how many gallery items you want on the screen
-const numImagesAvailable = 10; //how many total images are in the collection you are pulling from
+const fillType = 10; //how many total images are in the collection you are pulling from
 const imagesize = 100; //your desired image width in pixels
-const collectionID = 500; //the collection ID from the original url
+const seedId = 500; //the collection ID from the original url
 
 for (let i = 0; i < numItemsToGenerate; i++) {
-  let randomImageIndex = Math.floor(Math.random() * numImagesAvailable);
-  let randomCollectID = Math.floor(Math.random() * collectionID);
+  let randomfillType = Math.floor(Math.random() * fillType);
+  let randomseedId = Math.floor(Math.random() * seedId);
   if (i % 2 === 0) {
     //push fake
     imageData.push({
@@ -27,11 +27,9 @@ for (let i = 0; i < numItemsToGenerate; i++) {
   }
   
   imageData.push({
-    src: `https://app.pixelencounter.com/api/basic/svgmonsters/${randomCollectID}/image/png?fillType=${randomImageIndex}&size=${imagesize}`
+    src: `https://app.pixelencounter.com/api/basic/svgmonsters/${randomseedId}/image/png?fillType=${randomfillType}&size=${imagesize}`
   })
-
-  // https://app.pixelencounter.com/api/basic/svgmonsters/2000/image/png?fillType=3&size=100
-
+  
 }
 
 const MissingImage = () => {
@@ -41,6 +39,9 @@ const MissingImage = () => {
 const axios = require('axios')
 
 const download = e => {
+
+//###Using javascript Fetch
+
   // console.log(e.target.href);
   // fetch(e.target.href, {
   //   method: "GET",
@@ -62,13 +63,12 @@ const download = e => {
   //     console.log(err);
   //   });
 
-  //#######################
+  //############## Usinf axios
   axios({
-    url:'https://cors-anywhere.herokuapp.com/'+e.target.src,
+    url:e.target.src,
     method:'GET',
-    mode: 'cors', // no-cors, *cors, same-origin
+    mode: 'no-cors', // no-cors, *cors, same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
     headers: {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin' : '*',
@@ -91,14 +91,9 @@ const download = e => {
 const ReactImageFallbackContainer = (props) => {
 
   const CONTAINER_ID = uuidv1();
-  // console.log('render');
-  // console.log(props);
   return (<div id={`SymbolContainer_${CONTAINER_ID}`} className="col-3 my-2">
     <a download
         onClick={e => download(e)}><img src={props.src} className="img-fluid" /></a>
-    {
-      //  <ReactImageFallback {...props} />
-    }
   </div>)
 }
 
@@ -110,8 +105,7 @@ const ImageComponent = ({ src }) => {
     alt="cool image should be here"
     className="img-fluid"
     onError={(e) => {
-      // console.log(document.querySelector(`#SymbolContainer_${i}`))
-      //document.querySelector(`#SymbolContainer_${CONTAINER_ID}`).remove()
+      s
     }}
   />
 
@@ -140,10 +134,6 @@ class App extends Component {
     };
   }
 
-  showAlert() {
-    alert("I'm an alert");
-  }
-
   componentDidMount = async () => {
     const validImages = [];
     let promises = imageData.map(checkImage);
@@ -162,13 +152,12 @@ class App extends Component {
           src: response
         });
       }).catch(error => {
-        //console.log(error);
+        console.log(error);
       })
     }
 
 
     this.setState(prevState => {
-      //console.log('set state');
       return {
         validImages: validImages
       }
