@@ -242,9 +242,9 @@ class App extends Component {
               })
             )
               : (
-                <div className="card-title col-12 card">
+                <div className="card-title">
 
-                  <img className="loading" src="https://c.tenor.com/BtC0jVjzYToAAAAC/loading-chain.gif" />
+                  <img className="loading" src="https://studio.code.org/v3/assets/CffKtSIYkjIcwoQ0tYfRw1wj2Av7J0cAl29M3yGpRKk/3d6aa9082f3c9e285df9970dc7b762ac.gif" />
                   
                 </div>
                 
@@ -255,7 +255,7 @@ class App extends Component {
         good images: {this.state.validImages.length} / {imageData.length}
         <br />
 
-        <button onClick={this.handleClick}>Add {this.state.count}</button>
+        {/* <button onClick={this.handleClick}>Add {this.state.count}</button> */}
       </div>
     );
   }
